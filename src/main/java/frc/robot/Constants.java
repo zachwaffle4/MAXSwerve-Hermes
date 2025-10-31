@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
@@ -23,6 +24,8 @@ import edu.wpi.first.math.util.Units;
  */
 public final class Constants {
   public static final class DriveConstants {
+    public static final double NOMINAL_VOLTAGE = 12;
+
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
     public static final double MAX_SPEED_METERS_PER_SECOND = 4.8;
@@ -90,6 +93,8 @@ public final class Constants {
     public static final double K_STATIC = 0.8;
     public static final double K_VELOCITY = 2.38;
     public static final double K_ACCELERATION = 0.39;
+
+    public static final SimpleMotorFeedforward FEEDFORWARD = new SimpleMotorFeedforward(K_STATIC, K_VELOCITY, K_ACCELERATION);
 
     public static final double PX_CONTROLLER = 1;
     public static final double PY_CONTROLLER = 1;
