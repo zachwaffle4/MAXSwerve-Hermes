@@ -5,8 +5,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import org.wpilib.commands3.Command;
+import org.wpilib.commands3.Scheduler;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-    CommandScheduler.getInstance().run();
+    Scheduler.getDefault().run();
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
 
     // schedule the autonomous command (example)
     if (autonomousCommand != null) {
-      CommandScheduler.getInstance().schedule(autonomousCommand);
+      Scheduler.getDefault().schedule(autonomousCommand);
     }
   }
 
@@ -75,7 +75,7 @@ public class Robot extends TimedRobot {
     // continue until interrupted by another command, remove
     // this line or comment it out.
     if (autonomousCommand != null) {
-      autonomousCommand.cancel();
+      Scheduler.getDefault().cancel(autonomousCommand);
     }
   }
 
@@ -86,7 +86,7 @@ public class Robot extends TimedRobot {
   @Override
   public void testInit() {
     // Cancels all running commands at the start of test mode.
-    CommandScheduler.getInstance().cancelAll();
+    Scheduler.getDefault().cancelAll();
   }
 
   /** This function is called periodically during test mode. */
