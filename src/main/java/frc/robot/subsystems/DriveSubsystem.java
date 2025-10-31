@@ -13,9 +13,9 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.OnboardIMU;
 import frc.robot.Constants.DriveConstants;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import org.wpilib.commands3.Mechanism;
 
-public class DriveSubsystem extends SubsystemBase {
+public class DriveSubsystem extends Mechanism {
   // Create MAXSwerveModules
   private final MAXSwerveModule frontLeft = new MAXSwerveModule(
       DriveConstants.FRONT_LEFT_DRIVING_CAN_ID,
@@ -55,7 +55,6 @@ public class DriveSubsystem extends SubsystemBase {
   public DriveSubsystem() {
   }
 
-  @Override
   public void periodic() {
     // Update the odometry in the periodic block
     odometry.update(
