@@ -11,9 +11,15 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.math.trajectory.SwerveSample;
+import edu.wpi.first.math.trajectory.SwerveTrajectory;
 import edu.wpi.first.wpilibj.OnboardIMU;
+import edu.wpi.first.wpilibj.Timer;
 import frc.robot.Constants.DriveConstants;
+import org.wpilib.commands3.Command;
 import org.wpilib.commands3.Mechanism;
+
+import static edu.wpi.first.units.Units.Seconds;
 
 public class DriveSubsystem extends Mechanism {
   // Create MAXSwerveModules
@@ -174,5 +180,19 @@ public class DriveSubsystem extends Mechanism {
    */
   public double getTurnRate() {
     return gyro.getGyroRateZ() * (DriveConstants.GYRO_REVERSED ? -1.0 : 1.0);
+  }
+
+  public Command followTrajectoryCommand(SwerveTrajectory trajectory) {
+    Timer timer = new Timer();
+
+    return run(coroutine -> {
+      timer.start();
+      while (!timer.hasElapsed(trajectory.duration.in(Seconds))) {
+        SwerveSample sample = trajectory.sampleAt(timer.get());
+        setModuleStates(sample.states);
+        coroutine.yield();
+      }
+      drive(0.0, 0.0, 0.0, false);
+    }).named("Follow Trajectory");
   }
 }
