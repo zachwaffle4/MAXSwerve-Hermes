@@ -62,6 +62,7 @@ def includeDesktopSupport = true
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
@@ -88,7 +89,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation "gay.zharel.hermes:core:0.3.2"
+    implementation "gay.zharel.hermes:wpi:2027.0.0-local1"
 }
 
 test {
