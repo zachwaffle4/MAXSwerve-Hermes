@@ -87,6 +87,10 @@ public final class Constants {
     public static final double MAX_ANGULAR_SPEED_RADIANS_PER_SECOND = Math.PI;
     public static final double MAX_ANGULAR_SPEED_RADIANS_PER_SECOND_SQUARED = Math.PI;
 
+    public static final double K_STATIC = 0.8;
+    public static final double K_VELOCITY = 2.38;
+    public static final double K_ACCELERATION = 0.39;
+
     public static final double PX_CONTROLLER = 1;
     public static final double PY_CONTROLLER = 1;
     public static final double P_THETA_CONTROLLER = 1;
