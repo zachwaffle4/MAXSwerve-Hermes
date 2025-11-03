@@ -187,11 +187,13 @@ public class DriveSubsystem extends Mechanism {
 
     return run(coroutine -> {
       timer.start();
+
       while (!timer.hasElapsed(trajectory.duration.in(Seconds))) {
         SwerveSample sample = trajectory.sampleAt(timer.get());
         setModuleStates(sample.states);
         coroutine.yield();
       }
+
       drive(0.0, 0.0, 0.0, false);
     }).named("Follow Trajectory");
   }
