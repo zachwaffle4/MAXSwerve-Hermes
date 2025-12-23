@@ -16,7 +16,7 @@ import org.wpilib.opmode.PeriodicOpMode;
 import static org.wpilib.units.Units.MetersPerSecond;
 import static org.wpilib.units.Units.Volts;
 
-@Autonomous
+@Autonomous(name="Peak Autonomous")
 public class MyAutonomous extends PeriodicOpMode {
     private final Robot robot;
     private final Command autonomousCommand;
