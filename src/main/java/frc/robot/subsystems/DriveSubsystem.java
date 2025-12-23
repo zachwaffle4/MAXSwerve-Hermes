@@ -4,22 +4,22 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.kinematics.ChassisSpeeds;
-import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
-import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
-import edu.wpi.first.math.kinematics.SwerveModulePosition;
-import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.math.trajectory.SwerveSample;
-import edu.wpi.first.math.trajectory.SwerveTrajectory;
-import edu.wpi.first.wpilibj.OnboardIMU;
-import edu.wpi.first.wpilibj.Timer;
+import org.wpilib.math.geometry.Pose2d;
+import org.wpilib.math.geometry.Rotation2d;
+import org.wpilib.math.kinematics.ChassisSpeeds;
+import org.wpilib.math.kinematics.SwerveDriveKinematics;
+import org.wpilib.math.kinematics.SwerveDriveOdometry;
+import org.wpilib.math.kinematics.SwerveModulePosition;
+import org.wpilib.math.kinematics.SwerveModuleState;
+import org.wpilib.math.trajectory.SwerveSample;
+import org.wpilib.math.trajectory.SwerveTrajectory;
+import org.wpilib.hardware.imu.OnboardIMU;
+import org.wpilib.system.Timer;
 import frc.robot.Constants.DriveConstants;
-import org.wpilib.commands3.Command;
-import org.wpilib.commands3.Mechanism;
+import org.wpilib.command3.Command;
+import org.wpilib.command3.Mechanism;
 
-import static edu.wpi.first.units.Units.Seconds;
+import static org.wpilib.units.Units.Seconds;
 
 public class DriveSubsystem extends Mechanism {
   // Create MAXSwerveModules

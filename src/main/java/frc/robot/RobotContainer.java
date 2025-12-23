@@ -4,24 +4,24 @@
 
 package frc.robot;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.trajectory.SwerveTrajectory;
-import edu.wpi.first.wpilibj.PS4Controller.Button;
-import edu.wpi.first.wpilibj.XboxController;
+import org.wpilib.math.util.MathUtil;
+import org.wpilib.math.geometry.Pose2d;
+import org.wpilib.math.geometry.Rotation2d;
+import org.wpilib.math.geometry.Translation2d;
+import org.wpilib.math.trajectory.SwerveTrajectory;
+import org.wpilib.driverstation.PS4Controller.Button;
+import org.wpilib.driverstation.XboxController;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.DriveSubsystem;
 import gay.zharel.hermes.wpitrajectories.SwerveDriveConstraint;
 import gay.zharel.hermes.wpitrajectories.SwerveTrajectoryBuilder;
-import org.wpilib.commands3.Command;
-import org.wpilib.commands3.Scheduler;
-import org.wpilib.commands3.button.JoystickButton;
+import org.wpilib.command3.Command;
+import org.wpilib.command3.Scheduler;
+import org.wpilib.command3.button.JoystickButton;
 
-import static edu.wpi.first.units.Units.*;
+import static org.wpilib.units.Units.*;
 
 /*
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -62,9 +62,9 @@ public class RobotContainer {
   /**
    * Use this method to define your button->command mappings. Buttons can be
    * created by
-   * instantiating a {@link edu.wpi.first.wpilibj.GenericHID} or one of its
+   * instantiating a {@link org.wpilib.wpilibj.GenericHID} or one of its
    * subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then calling
+   * org.wpilib.wpilibj.Joystick} or {@link XboxController}), and then calling
    * passing it to a
    * {@link JoystickButton}.
    */
