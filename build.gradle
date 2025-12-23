@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "edu.wpi.first.GradleRIO2027" version "2027.0.0-alpha-2"
+    id "org.wpilib.GradleRIO" version "2027.0.0-alpha-67"
     id "org.jetbrains.kotlin.jvm" version "2.2.21"
 }
 
@@ -16,7 +16,6 @@ kotlin {
 wpi.maven.useLocal = false
 wpi.maven.useDevelopment = false
 wpi.maven.useFrcMavenLocalDevelopment = true
-wpi.versions.wpimathVersion = '2027.424242.+'
 wpi.versions.wpilibVersion = '2027.424242.+'
 
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
@@ -89,7 +88,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation "gay.zharel.hermes:wpi:2027.0.0-local1"
+    implementation "gay.zharel.hermes:wpi:2027.0.0-local3"
 }
 
 test {
@@ -107,7 +106,7 @@ wpi.sim.addDriverstation()
 jar {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     from sourceSets.main.allSource
-    manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
+    manifest org.wpilib.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
